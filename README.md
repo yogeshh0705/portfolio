@@ -1,2 +1,3 @@
 # portfolio
-repo for proessional portfolio
+portfolio repo
+
