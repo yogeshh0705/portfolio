@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #08090b;
+  color: #f5f4f0;
+}
+
+::selection {
+  background-color: rgba(255, 122, 26, 0.35);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #08090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #24262b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3d44;
+}
+
+/* Film-grain texture — a tiled SVG noise filter, no external asset needed. */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.section-heading {
+  @apply font-display text-3xl sm:text-4xl font-bold tracking-tight text-white;
+}
+
+.section-eyebrow {
+  @apply flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.25em] text-brand;
+}
+.section-eyebrow::before {
+  content: '//';
+  @apply text-white/25;
+}
+
+.card {
+  @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+}
+
+/* Hide the native cursor only on devices with a precise pointer (desktop mice) so
+   CustomCursor can take over — touch/trackpad-only devices keep the default. */
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
