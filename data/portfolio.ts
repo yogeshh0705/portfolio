@@ -1,6 +1,9 @@
 // Central content file. Update the `research` object once the VTOL write-up is shared.
 // Keeping all copy here means the components below rarely need to change.
 
+// Prefix for files in /public so they resolve under the GitHub Pages subpath.
+const asset = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}${path}`;
+
 export const profile = {
   name: 'Yogesh',
   title: 'Embedded Systems Engineer | Drone & IoT Enthusiast',
@@ -11,7 +14,7 @@ export const profile = {
   email: 'yogesh931007@gmail.com',
   github: 'https://github.com/yogeshh0705',
   linkedin: 'https://linkedin.com/in/yogesh931007', // TODO: confirm exact LinkedIn URL
-  resumeUrl: '/resume.pdf', // TODO: drop resume.pdf into /public
+  resumeUrl: asset('/resume.pdf'), // TODO: drop resume.pdf into /public
 };
 
 export const about = {
@@ -145,7 +148,7 @@ export const research = {
   status: 'In Progress',
   overview:
     'A VTOL (Vertical Take-Off and Landing) drone takes off and lands vertically like a helicopter, then transitions to forward flight like a fixed-wing aircraft — no runway needed. This research designs a hybrid fixed-wing VTOL: a quad-rotor lift stack on a fixed-wing airframe with an inverted V-tail and a rear pusher motor for cruise, aimed at long-endurance mapping, surveillance, and payload missions.',
-  image: '/research/vtol-hero.png',
+  image: asset('/research/vtol-hero.png'),
   specs: [
     { label: 'Airframe', value: 'Hybrid fixed-wing, inverted V-tail' },
     { label: 'Target weight', value: '10 kg' },
